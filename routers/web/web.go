@@ -559,6 +559,8 @@ func registerRoutes(m *web.Route) {
 		m.Get("/change_password", auth.MustChangePassword)
 		m.Post("/change_password", web.Bind(forms.MustChangePasswordForm{}), auth.MustChangePasswordPost)
 		m.Post("/avatar", web.Bind(forms.AvatarForm{}), user_setting.AvatarPost)
+		m.Get("/notifications", user_setting.Notifications)
+
 		m.Post("/avatar/delete", user_setting.DeleteAvatar)
 		m.Group("/account", func() {
 			m.Combo("").Get(user_setting.Account).Post(web.Bind(forms.ChangePasswordForm{}), user_setting.AccountPost)

@@ -17,15 +17,14 @@ const (
 	tplSettingsNotifications base.TplName = "user/settings/notifications"
 )
 
-// TODO: remove this comment
-// Account renders change user's password, user's email and user suicide page
+// Notifications render manage access token page
 func Notifications(ctx *context.Context) {
-	ctx.Data["Title"] = ctx.Tr("settings.account")
-	ctx.Data["PageIsSettingsAccount"] = true
+	ctx.Data["Title"] = ctx.Tr("settings.notifications")
+	ctx.Data["PageIsSettingsNotifications"] = true
 	ctx.Data["Email"] = ctx.Doer.Email
 	ctx.Data["EnableNotifyMail"] = setting.Service.EnableNotifyMail
 
-	loadAccountData(ctx)
+	//loadAccountData(ctx)
 
 	ctx.HTML(http.StatusOK, tplSettingsNotifications)
 }
