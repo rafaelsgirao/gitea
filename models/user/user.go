@@ -83,6 +83,7 @@ type User struct {
 	Email                        string `xorm:"NOT NULL"`
 	KeepEmailPrivate             bool
 	EmailNotificationsPreference string `xorm:"VARCHAR(20) NOT NULL DEFAULT 'enabled'"`
+	UINotificationsPreference    string `xorm:"VARCHAR(20) NOT NULL DEFAULT 'enabled'"`
 	Passwd                       string `xorm:"NOT NULL"`
 	PasswdHashAlgo               string `xorm:"NOT NULL DEFAULT 'argon2'"`
 
@@ -579,6 +580,7 @@ type CreateUserOverwriteOptions struct {
 	Visibility                   *structs.VisibleType
 	AllowCreateOrganization      optional.Option[bool]
 	EmailNotificationsPreference *string
+	UINotificationsPreference    *string
 	MaxRepoCreation              *int
 	Theme                        *string
 	IsRestricted                 optional.Option[bool]
@@ -606,6 +608,8 @@ func createUser(ctx context.Context, u *User, createdByAdmin bool, overwriteDefa
 	u.Visibility = setting.Service.DefaultUserVisibilityMode
 	u.AllowCreateOrganization = setting.Service.DefaultAllowCreateOrganization && !setting.Admin.DisableRegularOrgCreation
 	u.EmailNotificationsPreference = setting.Admin.DefaultEmailNotification
+	u.UINotificationsPreference = setting.Admin.DefaultUINotification
+
 	u.MaxRepoCreation = -1
 	u.Theme = setting.UI.DefaultTheme
 	u.IsRestricted = setting.Service.DefaultUserIsRestricted
@@ -630,6 +634,9 @@ func createUser(ctx context.Context, u *User, createdByAdmin bool, overwriteDefa
 		}
 		if overwrite.EmailNotificationsPreference != nil {
 			u.EmailNotificationsPreference = *overwrite.EmailNotificationsPreference
+		}
+		if overwrite.UINotificationsPreference != nil {
+			u.UINotificationsPreference = *overwrite.UINotificationsPreference
 		}
 		if overwrite.MaxRepoCreation != nil {
 			u.MaxRepoCreation = *overwrite.MaxRepoCreation

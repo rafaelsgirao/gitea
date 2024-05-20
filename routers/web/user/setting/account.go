@@ -316,6 +316,8 @@ func loadAccountData(ctx *context.Context) {
 	}
 	ctx.Data["Emails"] = emails
 	ctx.Data["EmailNotificationsPreference"] = ctx.Doer.EmailNotificationsPreference
+	ctx.Data["UINotificationsPreference"] = ctx.Doer.UINotificationsPreference
+
 	ctx.Data["ActivationsPending"] = pendingActivation
 	ctx.Data["CanAddEmails"] = !pendingActivation || !setting.Service.RegisterEmailConfirm
 	ctx.Data["UserDisabledFeatures"] = user_model.DisabledFeaturesWithLoginType(ctx.Doer)
