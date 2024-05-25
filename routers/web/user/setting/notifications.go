@@ -24,7 +24,7 @@ func Notifications(ctx *context.Context) {
 	ctx.Data["Email"] = ctx.Doer.Email
 	ctx.Data["EnableNotifyMail"] = setting.Service.EnableNotifyMail
 
-	//loadAccountData(ctx)
+	loadNotificationsData(ctx)
 
 	ctx.HTML(http.StatusOK, tplSettingsNotifications)
 }
