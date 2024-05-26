@@ -47,7 +47,7 @@ func TestUpdateUser(t *testing.T) {
 		AllowCreateOrganization:      optional.Some(false),
 		EmailNotificationsPreference: optional.Some("disabled"),
 		UINotificationsPreference:    optional.Some("disabled"),
-		SetLastLogin: true,
+		SetLastLogin:                 true,
 	}
 	assert.NoError(t, UpdateUser(db.DefaultContext, user, opts))
 
@@ -91,7 +91,6 @@ func TestUpdateUser(t *testing.T) {
 	assert.Equal(t, opts.AllowCreateOrganization.Value(), user.AllowCreateOrganization)
 	assert.Equal(t, opts.EmailNotificationsPreference.Value(), user.EmailNotificationsPreference)
 	assert.Equal(t, opts.UINotificationsPreference.Value(), user.UINotificationsPreference)
-
 }
 
 func TestUpdateAuth(t *testing.T) {
