@@ -7,7 +7,7 @@
 			<div class="ui list">
 				{{if $.EnableNotifyMail}}
 				<div class="item">
-					<div class="tw-mb-2">{{ctx.Locale.Tr "settings.email_desc"}}</div>
+					<div class="tw-mb-2">{{ctx.Locale.Tr "settings.email_notifications_desc"}}</div>
 					<form action="{{AppSubUrl}}/user/settings/notifications" class="ui form" method="post">
 						{{$.CsrfTokenHtml}}
 						<input name="_method" type="hidden" value="EMAIL">
@@ -17,13 +17,13 @@
 								{{svg "octicon-triangle-down" 14 "dropdown icon"}}
 								<div class="text"></div>
 								<div class="menu">
-									<div data-value="enabled" class="{{if eq .EmailNotificationsPreference "enabled"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.email_notifications.enable"}}</div>
-									<div data-value="andyourown" class="{{if eq .EmailNotificationsPreference "andyourown"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.email_notifications.andyourown"}}</div>
-									<div data-value="onmention" class="{{if eq .EmailNotificationsPreference "onmention"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.email_notifications.onmention"}}</div>
-									<div data-value="disabled" class="{{if eq .EmailNotificationsPreference "disabled"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.email_notifications.disable"}}</div>
+									<div data-value="enabled" class="{{if eq .EmailNotificationsPreference "enabled"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.notifications.enable"}}</div>
+									<div data-value="andyourown" class="{{if eq .EmailNotificationsPreference "andyourown"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.notifications.andyourown"}}</div>
+									<div data-value="onmention" class="{{if eq .EmailNotificationsPreference "onmention"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.notifications.onmention"}}</div>
+									<div data-value="disabled" class="{{if eq .EmailNotificationsPreference "disabled"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.notifications.disable"}}</div>
 								</div>
 							</div>
-							<button class="ui primary button">{{ctx.Locale.Tr "settings.email_notifications.submit"}}</button>
+							<button class="ui primary button">{{ctx.Locale.Tr "settings.notifications.submit_email"}}</button>
 						</div>
 					</form>
 				</div>
@@ -43,13 +43,13 @@
 								{{svg "octicon-triangle-down" 14 "dropdown icon"}}
 								<div class="text"></div>
 								<div class="menu">
-									<div data-value="enabled" class="{{if eq .UINotificationsPreference "enabled"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.ui_notifications.enable"}}</div>
-									<div data-value="andyourown" class="{{if eq .UINotificationsPreference "andyourown"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.ui_notifications.andyourown"}}</div>
-									<div data-value="onmention" class="{{if eq .UINotificationsPreference "onmention"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.ui_notifications.onmention"}}</div>
-									<div data-value="disabled" class="{{if eq .UINotificationsPreference "disabled"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.ui_notifications.disable"}}</div>
+									<div data-value="enabled" class="{{if eq .UINotificationsPreference "enabled"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.notifications.enable"}}</div>
+									<div data-value="andyourown" class="{{if eq .UINotificationsPreference "andyourown"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.notifications.andyourown"}}</div>
+									<div data-value="onmention" class="{{if eq .UINotificationsPreference "onmention"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.notifications.onmention"}}</div>
+									<div data-value="disabled" class="{{if eq .UINotificationsPreference "disabled"}}active selected {{end}}item">{{ctx.Locale.Tr "settings.notifications.disable"}}</div>
 								</div>
 							</div>
-							<button class="ui primary button">{{ctx.Locale.Tr "settings.ui_notifications.submit"}}</button>
+							<button class="ui primary button">{{ctx.Locale.Tr "settings.notifications.submit_ui"}}</button>
 						</div>
 					</form>
 				</div>
